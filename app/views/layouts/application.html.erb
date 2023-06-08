@@ -14,22 +14,27 @@
     </head>
       <body>
    <nav class="navbar navbar-light" style="background-color: #87CEFA;">
+   <%if user_signed_in?%>
+   <div class='imgsml'>
+<%=image_tag( current_user.image,size: '50x50',:class=> "img-circular"
+
+ )if current_user.image.attached? %>
+  <%= link_to "profile", edit_user_registration_path, class: "navbar-link"  %>
+</div>
+
+ <%else%>
     <a class="navbar-brand">Navbar</a>
+    <%end%>
     <form class="form-inline">
     <p class="navbar-text float-left">
 
 
 
     <% if user_signed_in? %>
-   
 
-    <%# <%=image_tage user.image %> 
-    <%# <%= image_tag user.image%> %>
- 
-
-  <%= link_to "profile", profiles_index_path, class: "navbar-link" %> 
-   <%= link_to "profile", profiles_index_path, class: "navbar-link" %> ||
-    <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-link" %> |
+  <%# <%= link_to "Home", profiles_index_path, class: "navbar-link" %>  
+   <%= link_to "Home", profiles_index_path, class: "navbar-link"  %>||
+  
     <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-link"  %>
     
   <% else %>
@@ -44,6 +49,7 @@
   </p>
   </form >
 </nav>
+  
   <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     <%= yield %>

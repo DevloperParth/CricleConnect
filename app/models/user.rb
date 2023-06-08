@@ -9,6 +9,8 @@ class User < ApplicationRecord
   after_save_commit :welcome_send
 
   def welcome_send
-  UserMailer.welcome_email(self).deliver_later
+    if self.confirmed?
+       UserMailer.welcome_email(self).deliver_later
+    end
   end
 end
