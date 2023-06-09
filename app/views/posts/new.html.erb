@@ -1,0 +1,14 @@
+<%= form_with model: @post do |form|%>
+  <div class="field">
+    <%= form.label :picture %><br />
+    <%= form.file_field :picture %>
+  </div>
+   <div class="field">
+    <%= form.label :add_text %><br />
+    <%= form.text_field :add_text %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Post" %>
+  </div>
+
+<% end %>
