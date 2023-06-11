@@ -1,5 +1,19 @@
-<% @posts.each do |post| %>
- 
- <%=image_tag post.picture,size: '200x200'%>
-  <%# <%=post.add_text%> 
-<% end %>
+<div class = 'center'>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <div class="card" style="width: 25rem;">
+          <img src="" class="card-img-top">
+          <div class ="card-body">
+            <%=link_to post_path(post) do %>
+              <%=image_tag post.picture, size: '350x400' %>
+            <% end %>
+            <%=post.add_text%> 
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </li> 
+    <% end %>
+  </ul>
+</div>
