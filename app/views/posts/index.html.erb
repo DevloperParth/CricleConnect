@@ -9,10 +9,11 @@
             <div class="row actions" id="comment-form-post-<%= post.id.to_s %>">
         <%= render 'comment_form', {post: post} %>
             </div>
-      <!--for Like section-->
-      <%=button_to 'like', likes_path,params: {like:{post_id: post.id}},method: :post%>
+      <!--for Like section--><div>
+      <%=button_to 'like', likes_path,params: {like:{post_id: post.id}},method: :post%> 
+      </div>
       <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-       <%=post.add_text%> 
+      <%=post.add_text%> 
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
