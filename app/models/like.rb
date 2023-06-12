@@ -1,5 +1,6 @@
-class ApplicationRecord < ActiveRecord::Base
-  primary_abstract_class
+class Like < ApplicationRecord
+  belongs_to :post
+  belongs_to :user
 
   def self.like(user, post)
     
@@ -10,5 +11,8 @@ class ApplicationRecord < ActiveRecord::Base
     like = find_by(user: user, post: post)
     like.destroy if like
   end
-
+  def likes?(post)
+    
+    likes.exists?(post_id: post.id)
+  end
 end

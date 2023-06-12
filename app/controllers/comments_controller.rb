@@ -1,25 +1,27 @@
 class CommentsController < ApplicationController
   def index
-    @commnets =Comment.all
+    @comments = @post.comments.includes(:user)
   end
   def new 
   @comment = Comment.new 
   end
   def create
-    @comment = current_user.comments.new(comment_params) 
-     
+    @comment = Comment.create(comment_params) 
+      
     if @comment.save
-      redirect_to @comments, notice: 'Comment created successfully.'
+      @post = @comment.post
+
+      flash[:notice] = "Successfully created"
     else
-      render :new
+      flash[:alert] = "Something went wrong ..."
   end
 end
   
   private
 
   def comment_params
-    params.require(:comment).permit(:comment)
-    .merge(post_id: params[:post_id])
+    params.require(:comment).permit(:comment,:user_id,:post_id)
+    
   end
 end
 

@@ -5,15 +5,21 @@
         <div class="card" style="width: 25rem;">
           <img src="" class="card-img-top">
           <div class ="card-body">
-            <%=link_to post_path(post) do %>
               <%=image_tag post.picture, size: '350x400' %>
-            <% end %>
-            <%=post.add_text%> 
+            <div class="row actions" id="comment-form-post-<%= post.id.to_s %>">
+        <%= render 'comment_form', {post: post} %>
+            </div>
+      <!--for Like section-->
+      <%=button_to 'like', likes_path,params: {like:{post_id: post.id}},method: :post%>
+      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+       <%=post.add_text%> 
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
+         
       </li> 
-    <% end %>
+    <% end %> 
+   
   </ul>
 </div>

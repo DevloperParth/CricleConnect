@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_one_attached :image
   has_many :posts
   has_many :comments
-
+  has_many :likes
+ 
   after_save_commit :welcome_send
 
   def welcome_send
