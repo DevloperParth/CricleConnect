@@ -16,4 +16,13 @@ class User < ApplicationRecord
        UserMailer.welcome_email(self).deliver_later
     end
   end
+
+
+  def self.search(search)
+    if search
+      byebug
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+   
+    end
+  end
 end

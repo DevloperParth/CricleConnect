@@ -11,11 +11,15 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
+      PostMailer.new_post(@post).deliver_now
       redirect_to controller: :posts, action: :index 
     else
-    render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
+    end
   end
-end
+  def search 
+    @user = User.search(params[:search])
+  end
 
   private
 

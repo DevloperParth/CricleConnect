@@ -25,6 +25,16 @@
   top: 30%;
   right: 25%;
 }
+.right { 
+  position: absolute;
+  
+  right: 5%;
+}
+.right1 { 
+  position: absolute;
+  
+  right: 20%;
+}
 #img {
 height: 20px;
 width: 10px;
