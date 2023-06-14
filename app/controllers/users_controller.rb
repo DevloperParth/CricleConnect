@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
 
-  def search 
-    @users = User.search(params[:search])
-  end
-
-  private
-  def params
-    params.require(:users).permit(:username, :password)
+  def index 
+    @q =User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
 end

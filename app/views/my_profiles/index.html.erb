@@ -1,0 +1,18 @@
+<div class = center>
+<div class="card" style="width: 25rem;">
+
+          <img src="" class="card-img-top">
+          <div class ="card-body">
+           <div class='imgsml'>
+        <%=image_tag( current_user.image,size: '100x100',:class=> "img-circular")if current_user.image.attached? %>
+        <%=current_user.username%>
+        </div>
+        <div class= right>
+        <h5>
+         <%= link_to "Followers", users_path, class: "navbar-link"  %>
+         </h5>
+        </div>
+
+          
+          </div>
+          </div>

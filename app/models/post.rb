@@ -9,13 +9,9 @@ class Post < ApplicationRecord
   def post_send
     PostMailer.new_post(self).deliver_later
   end
-  def self.search(search)
-    if search
-      byebug
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-    else
-      find(:all)
-    end
+  def self.ransackable_attributes(auth_object = nil)
+    super + ['username']
   end
+
   
 end

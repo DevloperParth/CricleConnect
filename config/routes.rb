@@ -8,9 +8,17 @@ Rails.application.routes.draw do
     post 'like', to: 'likes#like'
     delete 'unlike', to: 'likes#unlike'
   end
-  get '/search', to: "users#search" 
+  resources :my_profiles
+  resources :users
+  resources :profile
   resources :likes
   resources :comments, only: [:index, :create, :destroy], shallow: true
+  post 'profile/:id/follow', to: 'profile#follow',as: 'follow'
+  post 'profile/:id/unfollow', to: 'profile#unfollow', as: 'unfollow'
+  post 'profile/:id/accept', to: 'profile#accept', as: 'accept'
+  post 'profile/:id/decline', to: 'profile#decline', as: 'decline'
+  post 'profile/:id/cancel', to: 'profile#cancel', as: 'cancel'
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -8,21 +8,19 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :likes
- 
   after_save_commit :welcome_send
+
+  followability
 
   def welcome_send
     if self.confirmed?
        UserMailer.welcome_email(self).deliver_later
     end
   end
-
-
-  def self.search(search)
-    if search
-      byebug
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-   
-    end
+  def self.ransackable_attributes(auth_object = nil)
+    super + ['username']
+  end
+  def unfollow(user)
+    followerable_relationship.where(folloble_id: user.id).destroy_all
   end
 end

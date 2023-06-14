@@ -1,0 +1,8 @@
+<%=@user.username%>
+<% if current_user.following?(@user)%>
+  <%=button_to "unfollow", unfollow_path(@user)%>
+  <%elsif current_user.sent_follow_request_to?(@user)%>
+  <%=button_to "cancel follow request",cancel_path(@user)%>
+  <%else%>
+  <%=button_to "follow", follow_path(@user)%>
+  <%end%>

@@ -14,6 +14,12 @@ gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 
+#use gem for search
+gem 'ransack'
+
+#use gem for fallowblity
+gem 'followability'
+
 # Use for image processing
 gem "image_processing", ">= 1.2"
 

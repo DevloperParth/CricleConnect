@@ -29,6 +29,7 @@
   position: absolute;
   
   right: 5%;
+  top: 35%;
 }
 .right1 { 
   position: absolute;
@@ -46,7 +47,7 @@ body {
 }
 .imgsml{
 
-  border-radius: 50%;
+  border-radius: 100%;
 }
 .img-circular{
   width: 50px;
