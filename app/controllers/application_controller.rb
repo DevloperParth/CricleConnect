@@ -8,8 +8,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:username,:bio,:personal_information, :eamil, :password,:image])
   end
   public
-  def search 
-    key = "%#{params[:key]}%"
-    @user = User.where("username ?", key)
-  end
+ 
 end

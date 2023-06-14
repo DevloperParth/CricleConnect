@@ -68,14 +68,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_073733) do
     t.integer "user_id"
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.string "name"
-    t.string "bio"
-    t.string "gender"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

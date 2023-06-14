@@ -17,9 +17,7 @@ class PostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  def search 
-    @user = User.search(params[:search])
-  end
+  
 
   private
 

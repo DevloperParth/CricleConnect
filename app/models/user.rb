@@ -17,12 +17,10 @@ class User < ApplicationRecord
     end
   end
 
-
-  def self.search(search)
-    if search
-      byebug
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-   
-    end
+  def self.ransackable_attributes(auth_object = nil)
+    super + ['username']
   end
+
+
+
 end

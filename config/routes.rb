@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     post 'like', to: 'likes#like'
     delete 'unlike', to: 'likes#unlike'
   end
-  get '/search', to: "users#search" 
+  resources :users
+  # get '/search', to: "users#search" 
   resources :likes
   resources :comments, only: [:index, :create, :destroy], shallow: true
 
