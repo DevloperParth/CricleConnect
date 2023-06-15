@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'stories/create'
+  get 'stories/show'
+  get 'stories/new'
+  get 'stories/index'
+  get 'strories/create'
+  get 'strories/show'
   get 'profiles/index'
   get 'images/index'
   devise_for :users
@@ -12,6 +18,7 @@ Rails.application.routes.draw do
   resources :users
   resources :profile
   resources :likes
+  resources :stories
   resources :comments, only: [:index, :create, :destroy], shallow: true
   post 'profile/:id/follow', to: 'profile#follow',as: 'follow'
   post 'profile/:id/unfollow', to: 'profile#unfollow', as: 'unfollow'

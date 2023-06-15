@@ -1,0 +1,6 @@
+<h1>Stories#new</h1>
+<p>Find me in app/views/stories/new.html.erb</p>
+<%= form_with(model: @story, url: stories_path, method: :post) do |form| %>
+  <%= form.text_area :content %>
+  <%= form.submit 'Create Story' %>
+<% end %>

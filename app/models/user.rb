@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :likes
+  has_many :stories, dependent: :destroy
   after_save_commit :welcome_send
 
   followability
@@ -21,6 +22,6 @@ class User < ApplicationRecord
     super + ['username']
   end
   def unfollow(user)
-    followerable_relationship.where(folloble_id: user.id).destroy_all
+    followerable_relationships.where(followerable_id: user.id).destroy_all
   end
 end
