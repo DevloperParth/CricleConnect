@@ -12,16 +12,22 @@ class User < ApplicationRecord
   after_save_commit :welcome_send
 
   followability
+  def unfollow(user)
+    followerable_relationships.where(followable_id: user.id).destroy_all
+  end
+  def block(user)
+    followerable_relationships.where(followable_id: user.id).blocked
+  end
+
 
   def welcome_send
     if self.confirmed?
        UserMailer.welcome_email(self).deliver_later
     end
   end
+
   def self.ransackable_attributes(auth_object = nil)
     super + ['username']
   end
-  def unfollow(user)
-    followerable_relationships.where(followerable_id: user.id).destroy_all
-  end
+  
 end

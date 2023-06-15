@@ -5,14 +5,24 @@
           <div class ="card-body">
            <div class='imgsml'>
         <%=image_tag( current_user.image,size: '100x100',:class=> "img-circular")if current_user.image.attached? %>
-        <%=current_user.username%>
+        
+
         </div>
+        <%=current_user.username%><br>
+        <%=current_user.bio%><br>
+        <%=current_user.personal_information%>
         <div class= right>
         <h5>
-         <%= link_to "Followers", users_path, class: "navbar-link"  %>
+         <%= link_to "Followers",users_path %>
          </h5>
+         <div class ="down">
+         <p>
+         <%= link_to "Edit",edit_user_registration_path %>
+         </p>
+         </div>
         </div>
 
           
           </div>
           </div>
+          

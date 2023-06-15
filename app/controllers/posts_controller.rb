@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
-    @q =User.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = User.all
   end
   def show
     @post=Post.find(params[:id])

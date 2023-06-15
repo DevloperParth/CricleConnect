@@ -44,6 +44,7 @@ body {
   background-image: url("https://img.freepik.com/premium-photo/person-s-hand-using-digital-tablet-with-blocks-social-media-applications_23-2147844521.jpg?size=626&ext=jpg&ga=GA1.2.216365328.1686133921&semt=ais");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 .imgsml{
 
@@ -58,3 +59,163 @@ body {
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
  }
+
+
+ /* CSS for Navbar */
+
+
+  
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.navbar-link:hover {
+  text-decoration: underline;
+}
+
+.form-inline {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-text {
+  margin-right: 10px;
+}
+
+/* CSS for Image */
+.img-circular {
+  border-radius: 50%;
+}
+
+/* CSS for Notice and Alert */
+.notice,
+.alert {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.notice {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.alert {
+  background-color: #f2dede;
+  color: #a94442;
+}
+
+/* Add your custom CSS styles here */
+
+
+.card {
+  width: 25rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.imgsml {
+  display: flex;
+  align-items: center;
+}
+
+.img-circular {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.right {
+  text-align: right;
+}
+
+.navbar-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.navbar-link:hover {
+  text-decoration: underline;
+}
+
+h5 {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.right {
+  text-align: right;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+.card {
+  width: 25rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+}
+
+.card-body {
+  padding: 20px;
+}
+.down{
+  position: relative;
+  top: 40px;
+}
+
+h5 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+

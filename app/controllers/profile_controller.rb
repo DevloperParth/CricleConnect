@@ -2,33 +2,38 @@ class ProfileController < ApplicationController
  before_action :set_user
 
   def show
+    @post = Post.all
   end
 
   def follow
     current_user.send_follow_request_to(@user)
-    redirect_to user_path(@user)
+    redirect_to profile_path(@user)
+  end
+
+  def block
+    current_user.block(@user)
+    redirect_to profile_path(@user)
   end
 
   def unfollow
-    make_it_unfriend_request
     current_user.unfollow(@user)
-    redirect_to user_path(@user)
+    redirect_to profile_path(@user)
   end
 
   def accept
     current_user.accept_follow_request_of(@user)
     make_it_a_friend_request
-    redirect_to user_path
+    redirect_to profile_path
   end
 
   def decline
     current_user.decline_follow_request_of(@user)
-    redirect_to user_path(@user)
+    redirect_to profile_path(@user)
   end
 
   def cancel
     current_user.remove_follow_request_for(@user)
-    redirect_to user_path(@user)
+    redirect_to profile_path(@user)
   end
 
   def make_it_a_friend_request
