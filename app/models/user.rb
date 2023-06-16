@@ -8,8 +8,9 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :likes
-  has_many :stories, dependent: :destroy
+  has_many :stories
   after_save_commit :welcome_send
+  enum role: [:user,:admin]
 
   followability
   def unfollow(user)

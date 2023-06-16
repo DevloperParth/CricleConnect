@@ -13,12 +13,14 @@
  
   </head>
   <body>
-    <nav class="navbar navbar-light" style="background-color: #87CEFA;">
+    <nav class="navbar " style="background-color: #87CEFA;"  position= "fixed;">
       <%if user_signed_in?%>
         <div class='imgsml'>
           <%=image_tag( current_user.image,size: '50x50',:class=> "img-circular")if current_user.image.attached? %>
           <%= link_to "profile", my_profiles_path, class: "navbar-link"  %>
+    
         </div>
+        
       <%else%>
         <a class="navbar-brand">CircleConnect</a>
       <%end%>
@@ -38,8 +40,11 @@
         </p>
       </form >
     </nav>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+ <% if notice %> <p class="alert alert-success"><%= notice %></p>
+ <% end %> 
+ <% if alert %> <p class="alert alert-danger"><%= alert %></p> 
+ <% end %>
+  
       <%= yield %>
   </body>
 </html>

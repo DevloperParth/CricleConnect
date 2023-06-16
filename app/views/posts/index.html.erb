@@ -1,3 +1,19 @@
+<div class = 'top'> 
+  <div class='imgsml'>
+  <li>
+    <% @stories.each do |story| %>
+    <li>
+      <a href="/stories/<%story.id %>">
+      <%=image_tag(story.image,size: '100x100',:class=> "img-circular")if story.image.attached? %>   
+      </a>
+    </li>
+    <%end%>
+    <li>
+  </div>
+</div>
+
+  <button type="button" class="btn btn-danger"><%=link_to "Story",new_story_path%></button><br>
+  <%=current_user.username%>
 
 <div class = 'center'>
   <ul>
@@ -6,48 +22,46 @@
         <div class="card" style="width: 25rem;">
           <img src="" class="card-img-top">
           <div class ="card-body">
-          
-              <%=image_tag post.picture, size: '350x400' %>
+          <a href="/posts/<%=post.id %>">
+            <%=image_tag post.picture, size: '350x400' %>
+            </a>
             <div class="row actions" id="comment-form-post"<%= post.id.to_s %>>
-        <%= render 'comment_form', {post: post} %>
+                <%= render 'comment_form', {post: post} %>
             </div>
-      <!--for Like section--><div>
-      <%=button_to 'like', likes_path,params: {like:{post_id: post.id}},method: :post%> 
-      </div>
-      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-      <%=post.add_text%> 
-
+               <!--for Like section-->
+            <div>
+              <%=button_to 'like', likes_path,params: {like:{post_id: post.id}},method: :post%> 
+            </div>
+            <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+            <%=post.add_text%>
           </div>
-        </div>
-         
+        </div> 
       </li> 
     <% end %> 
-   
   </ul>
 </div>
 
 <div class="right">
-<div class="card" style="width: 20rem;">
-          <img src="" class="card-img-top">
-          <div class ="card-body">
-<ul>
-
-  <h5> Suggestion For you</h5>
-  <% @users.each do |user| %>
-    <li>
-     <a href="<%= profile_path(user) %>">
-     <%if current_user.following?(user)%>
-
-     <%else %>
-      <div class='imgsml'>
-     <%=image_tag(user.image,size: '100x100',:class=> "img-circular")if user.image.attached? %>
-     <%= user.username %>
-     </div>
-     <%end%>
-     </a>
-    </li>
-  <% end %>
-</ul>
-</div>
-</div>
+  <div class="card" style="width: 20rem;">
+    <img src="" class="card-img-top">
+      <div class ="card-body">
+        <ul>
+        <h5> Suggestion For you</h5>
+          <% @users.each do |user| %>
+            <li>
+              <a href="<%= profile_path(user) %>">
+              <%if current_user.following?(user) &&current_user == user%>
+              
+                <%else %>
+                <div class='imgsml'>
+                  <%=image_tag(user.image,size: '100x100',:class=> "img-circular")if user.image.attached? %>
+                  <%= user.username %>
+                </div>
+              <%end%>
+              </a>
+            </li>
+          <% end %>
+          </ul>
+      </div>
+  </div>
 </div>

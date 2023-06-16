@@ -7,7 +7,8 @@ class ProfileController < ApplicationController
 
   def follow
     current_user.send_follow_request_to(@user)
-    redirect_to profile_path(@user)
+    redirect_to profile_path(@user),
+    notice: 'you have successfully reauested'
   end
 
   def block

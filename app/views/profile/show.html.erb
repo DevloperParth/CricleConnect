@@ -2,16 +2,16 @@
   <div class = center>
    
 <div class="card" style="width: 25rem;">
-
           <img src="" class="card-img-top">
           <div class ="card-body">
            <div class='imgsml'>
-        <%=image_tag( @user.image,size: '100x100',:class=> "img-circular")if current_user.image.attached? %>
-        </div>
-        
-     <%=@user.username%><br>
-        <%=@user.bio%><br>
-        <%=@user.personal_information%>
+              <%=image_tag( @user.image,size: '100x100',:class=> "img-circular")if @user.image.attached? %>
+           </div>
+          <%=@user.username%><br>
+             <%=@user.email%><br>
+          <%=@user.bio%><br>
+          <%=@user.personal_information%>
+
         <div class= right>
         
   <% if current_user.following?(@user)%>
@@ -27,7 +27,7 @@
 </div>  
   <% if current_user %>    
     <%current_user.follow_requests.each do |request|%>
-      <%=request.followerable.email%> wants to follow you
+      <%=request.followerable.username%> wants to follow you
       <%=button_to "Accept",accept_path(request.followerable) %>
       <%=button_to "Decline",decline_path(request.followerable) %>
       <%=button_to "Block",block_path(@user)%>

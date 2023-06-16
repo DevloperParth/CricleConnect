@@ -41,10 +41,17 @@ height: 20px;
 width: 10px;
 }
 body {
-  background-image: url("https://img.freepik.com/premium-photo/person-s-hand-using-digital-tablet-with-blocks-social-media-applications_23-2147844521.jpg?size=626&ext=jpg&ga=GA1.2.216365328.1686133921&semt=ais");
+  background-image: url("back.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+.navbar {
+  overflow: hidden;
+ 
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 .imgsml{
 
@@ -63,7 +70,11 @@ body {
 
  /* CSS for Navbar */
 
-
+.top {
+  position: absolute;
+  top: 100px;
+  left:300px;
+}
   
 .navbar-brand {
   font-size: 1.5rem;
@@ -97,22 +108,9 @@ body {
 }
 
 /* CSS for Notice and Alert */
-.notice,
-.alert {
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
 
-.notice {
-  background-color: #dff0d8;
-  color: #3c763d;
-}
 
-.alert {
-  background-color: #f2dede;
-  color: #a94442;
-}
+
 
 /* Add your custom CSS styles here */
 

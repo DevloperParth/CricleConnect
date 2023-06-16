@@ -13,7 +13,7 @@ gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
-
+gem 'jquery-rails'
 #use gem for search
 gem 'ransack'
 

@@ -2,13 +2,17 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @users = User.all
+    @stories = Story.all
   end
+
   def show
     @post=Post.find(params[:id])
   end
+
   def new
     @post = Post.new
   end
+
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
@@ -18,6 +22,7 @@ class PostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  
   def search 
     @user = User.search(params[:search])
   end
