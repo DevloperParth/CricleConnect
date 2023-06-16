@@ -49,5 +49,6 @@ class ProfileController < ApplicationController
   
   def set_user
     @user=User.find(params[:id])
+    @posts=Post.all
   end
 end

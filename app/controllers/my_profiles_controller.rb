@@ -1,9 +1,10 @@
 class MyProfilesController < ApplicationController
+
   def index
 
   end
-  def show
-    
 
+  def show
+   
   end
 end

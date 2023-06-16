@@ -10,8 +10,8 @@ class StoriesController < ApplicationController
   end
 
   def create
-    @story = current_user.stories.new(story_params)
-    @story.expires_at = 24.hours.from_now
+    @story = current_user.stories.create(story_params)
+  
 
     if @story.save
       redirect_to posts_path, notice: 'Story created successfully.'

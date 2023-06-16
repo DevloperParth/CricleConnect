@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
   resources :my_profiles
   resources :users
+  resources :followers
   resources :profile
   resources :likes
   resources :stories

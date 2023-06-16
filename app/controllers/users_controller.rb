@@ -5,4 +5,8 @@ class UsersController < ApplicationController
     @q =User.ransack(params[:q])
     @users = @q.result(distinct: true)
   end
+
+  def show
+    @user=User.all
+  end
 end
