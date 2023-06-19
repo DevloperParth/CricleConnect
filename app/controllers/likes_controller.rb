@@ -13,7 +13,6 @@ class LikesController < ApplicationController
     @like.destroy
   end
 
-
   def like_params
     params.require(:like).permit(:post_id)
   end

@@ -2,7 +2,7 @@ class ProfileController < ApplicationController
  before_action :set_user
 
   def show
-    @post = Post.all
+    @posts = Post.all
   end
 
   def follow
@@ -44,6 +44,12 @@ class ProfileController < ApplicationController
 
   def make_it_unfriend_request
     @user.unfollow(current_user) if @user.mutual_following_with?(current_user)
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to controller: :users, action: :index, status: :see_other
   end
 
   private

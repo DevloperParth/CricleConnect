@@ -17,6 +17,10 @@ gem 'jquery-rails'
 #use gem for search
 gem 'ransack'
 
+#Use gem for emogi
+gem 'gemoji'
+gem 'rails_emoji_picker'
+
 #use gem for fallowblity
 gem 'followability'
 

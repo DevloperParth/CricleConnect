@@ -1,20 +1,16 @@
 <div class = 'top'> 
   <div class='imgsml'>
-  <li>
-    <% @stories.each do |story| %>
     <li>
-      <a href="/stories/<%story.id %>">
-      <%=image_tag(story.image,size: '100x100',:class=> "img-circular")if story.image.attached? %>   
-      </a>
-    </li>
-    <%end%>
+      <% @stories.each do |story| %>
+        <a href="/stories/<%story.id %>">
+          <%=image_tag(story.image,size: '100x100',:class=> "img-circular")if story.image.attached? %>   
+        </a>
+      <%end%>
     <li>
   </div>
 </div>
-
-  <button type="button" class="btn btn-danger"><%=link_to "Story",new_story_path%></button><br>
-  <%=current_user.username%>
-
+<button type="button" class="btn btn-danger"><%=link_to "Story",new_story_path%></button><br>
+<%=current_user.username%>
 <div class = 'center'>
   <ul>
     <% @posts.each do |post| %>
@@ -22,7 +18,7 @@
         <div class="card" style="width: 25rem;">
           <img src="" class="card-img-top">
           <div class ="card-body">
-          <a href="/posts/<%=post.id %>">
+            <a href="/posts/<%=post.id %>">
             <%=image_tag post.picture, size: '350x400' %>
             </a>
             <div class="row actions" id="comment-form-post"<%= post.id.to_s %>>

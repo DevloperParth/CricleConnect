@@ -15,6 +15,13 @@
  *= require_tree .
  *= require_self
  */
+
+ /*
+ *= require_tree .
+ *= require rails_emoji_picker
+ *= require bootstrap
+ *= require_self
+ */
 .center { 
   position: absolute;
   top: 30%;
