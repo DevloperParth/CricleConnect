@@ -1,0 +1,24 @@
+<div class = center>
+  <div class="card" style="width: 25rem;">
+    <img src="" class="card-img-top">
+      <div class ="card-body">
+        <div class='imgsml'>
+          <%=image_tag( current_user.image,size: '100x100',:class=> "img-circular")if current_user.image.attached? %>
+        </div>
+        <%=current_user.username%><br>
+        <%=current_user.email%><br>
+        <%=current_user.bio%><br>
+        <%=current_user.personal_information%>
+        <div class= right>
+          <h5>
+          <%= link_to "Followers",followers_url  %>
+          </h5>
+          <div class ="down">
+          <p>
+          <%= link_to "Edit",edit_user_registration_path %>
+          </p>
+        </div>
+      </div>
+  </div>
+  </div>
+          

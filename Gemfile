@@ -13,6 +13,16 @@ gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
+gem 'jquery-rails'
+#use gem for search
+gem 'ransack'
+
+#Use gem for emogi
+gem 'gemoji'
+gem 'rails_emoji_picker'
+
+#use gem for fallowblity
+gem 'followability'
 
 # Use for image processing
 gem "image_processing", ">= 1.2"
@@ -25,6 +35,7 @@ gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
+gem "byebug"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"

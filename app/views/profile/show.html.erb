@@ -1,0 +1,56 @@
+<div class = center>  
+  <div class="card" style="width: 25rem;">
+    <img src="" class="card-img-top">
+    <div class ="card-body">
+      <div class='imgsml'>
+        <%=image_tag( @user.image,size: '100x100',:class=> "img-circular")if @user.image.attached? %>
+      </div>
+      <%=@user.username%><br>
+      <%=@user.email%><br>
+      <%=@user.bio%><br>
+      <%=@user.personal_information%>
+      <div class= right>
+        <% if current_user.following?(@user)%>
+          <%=button_to "unfollow", unfollow_path(@user)%>
+          <%=button_to "Block",block_path&&unfollow_path(@user)%>
+          <%elsif current_user.sent_follow_request_to?(@user)%>
+          <%=button_to "cancel follow request",cancel_path(@user)%>
+          <%else %>
+          <%=button_to "follow", follow_path(@user)%>
+        <%end%>
+        <%if current_user.role ="admin"%>
+          <li><%= link_to "Destroy", profile_path(@user), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %></li>
+        <%end%>
+      </div>
+    </div>  
+    <% if current_user %>    
+      <%current_user.follow_requests.each do |request|%>
+        <%=request.followerable.username%> wants to follow you
+        <%=button_to "Accept",accept_path(request.followerable) %>
+        <%=button_to "Decline",decline_path(request.followerable) %>
+        <%=button_to "Block",block_path(@user)%>
+      <%end%>
+    <%end%>
+  </div>
+  <div class="col-sm-6">
+    <% @user.posts.each do |post| %>
+      <div class="col-sm-6">
+        <div class="card" style="width: 25rem;">
+          <img src="" class="card-img-top">
+            <div class ="card-body">
+              <%=image_tag post.picture, size: '350x400' %>
+              <div>
+              <%=button_to 'like', likes_path,params: {like:{post_id: post.id}},method: :post%> 
+            </div>
+            <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+            <%=post.add_text%>
+            </div>
+        </div>
+      </div>
+    <%end%>
+ </div>
+</div>
+

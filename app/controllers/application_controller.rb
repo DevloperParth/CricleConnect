@@ -4,7 +4,14 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :eamil, :password])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username,:bio,:personal_information, :eamil, :password,:image])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username,:bio,:personal_information, :eamil, :password,:image])
   end
 
+  public
+  
+  def search 
+    key = "%#{params[:key]}%"
+    @user = User.where("username ?", key)
+  end
 end

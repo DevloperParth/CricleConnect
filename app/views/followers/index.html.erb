@@ -1,0 +1,19 @@
+<div class ="center">
+  <div class="card" style="width: 25rem;">
+    <img src="" class="card-img-top">
+    <div class ="card-body">
+      <h5> your friends </h5>
+      <% @users.each do |user| %>
+        <a href="<%=profile_path(user) %>">
+          <%if current_user.following?(user)%>
+            <div class='imgsml'>
+              <%=image_tag(user.image,size: '100x100',:class=> "img-circular")if user.image.attached? %>
+              <%= user.username %>
+            </div>
+          <%else %>
+          <%end%>
+        </a>
+      <% end %>
+    </div>
+  </div>
+</div>
