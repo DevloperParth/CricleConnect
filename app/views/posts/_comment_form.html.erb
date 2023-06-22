@@ -2,7 +2,9 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :post_id, value: post.id %>
   <p class="emoji-picker-container">
-  <%= f.text_area :comment, class: "form-control ",data: { emojiable: true } %>
+  <%= f.text_field :comment, class: "form-control ",data:{emojiable: true}%>
+  
+
   </p>
-  <%=f.submit "commet"%>
+  <%=f.submit "comment"%>
 <% end %>

@@ -2,7 +2,7 @@ class StoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @stories=Story.all
+    @stories = Story.all
   end
 
   def new
@@ -21,16 +21,11 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
-    if @story.expires_at > Time.now
-      render :show
-    else
-      redirect_to root_path, alert: 'Story has expired.'
-    end
   end
 
   private
 
   def story_params
-    params.require(:story).permit(:content, :image,:expires_at)
+    params.require(:story).permit(:content, :image, :expires_at)
   end
 end

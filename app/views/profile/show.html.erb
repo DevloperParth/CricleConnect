@@ -18,17 +18,19 @@
           <%else %>
           <%=button_to "follow", follow_path(@user)%>
         <%end%>
-        <%if current_user.role ="admin"%>
+        <%if current_user.role =="admin"%>
           <li><%= link_to "Destroy", profile_path(@user), data: {
                 turbo_method: :delete,
                 turbo_confirm: "Are you sure?"
               } %></li>
+              <%else%>
+
         <%end%>
       </div>
     </div>  
     <% if current_user %>    
       <%current_user.follow_requests.each do |request|%>
-        <%=request.followerable.username%> wants to follow you
+        <%=request.followerable.username?%> wants to follow you
         <%=button_to "Accept",accept_path(request.followerable) %>
         <%=button_to "Decline",decline_path(request.followerable) %>
         <%=button_to "Block",block_path(@user)%>

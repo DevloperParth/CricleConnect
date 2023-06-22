@@ -1,3 +1,13 @@
-<h1>Stories#show</h1>
-<p>Find me in app/views/stories/show.html.erb</p>
-<p><%= @story.content %></p>
+
+<div class="center"> 
+<%=@story.user.username%>
+  <div class="card" style="width: 25rem;">
+      <div class ="card-body">
+        <div class='imgsml'>
+         
+          <%=image_tag(@story.image,size: '350x400')if @story.image.attached? %>   
+          <p><%= @story.content %></p>  
+        </div>
+      </div>
+  </div>
+</div>

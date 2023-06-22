@@ -16,10 +16,14 @@ class User < ApplicationRecord
   def unfollow(user)
     followerable_relationships.where(followable_id: user.id).destroy_all
   end
+
   def block(user)
     followerable_relationships.where(followable_id: user.id).blocked
   end
 
+  def already_likes?(post)
+    self.likes.where(post_id: post.id).exists?
+  end
 
   def welcome_send
     if self.confirmed?

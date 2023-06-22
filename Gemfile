@@ -21,6 +21,9 @@ gem 'ransack'
 gem 'gemoji'
 gem 'rails_emoji_picker'
 
+#use gem for rspac
+gem 'rspec'
+gem 'factory_bot_rails'
 #use gem for fallowblity
 gem 'followability'
 

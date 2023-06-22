@@ -4,7 +4,8 @@
     <h5>Comments</h5>
     <% @post.comments.each do |post| %>
       <div class="card" style="width: 25rem;">
-        <img src="" class="card-img-top">
+        
+        <%=post.user.username%>
         <%= content_with_emoji(post.comment) %>
       </div>
     <%end%>

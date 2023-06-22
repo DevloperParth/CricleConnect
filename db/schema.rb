@@ -81,6 +81,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_094017) do
     t.integer "user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "name"
+    t.string "bio"
+    t.string "gender"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "stories", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "content"

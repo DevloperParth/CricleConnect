@@ -5,5 +5,6 @@ class Story < ApplicationRecord
  
 
   scope :active, -> { where('expires_at > ?', Time.now) }
-  scope :expired, -> { where('expires_at <= ?', Time.now) }
+  scope :expired, -> { where('expires_at <= ?',Date.end_of_day) }
+  
 end

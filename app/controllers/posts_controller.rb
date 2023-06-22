@@ -4,6 +4,9 @@ class PostsController < ApplicationController
     @posts = Post.all
     @users = User.all
     @stories = Story.all
+    @likes = Like.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
 
   def show
@@ -23,7 +26,7 @@ class PostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
+
   def search 
     @user = User.search(params[:search])
   end

@@ -2,22 +2,21 @@
   <div class='imgsml'>
     <li>
       <% @stories.each do |story| %>
-        <a href="/stories/<%story.id %>">
-          <%=image_tag(story.image,size: '100x100',:class=> "img-circular")if story.image.attached? %>   
-        </a>
+        <%=image_tag(story.image,size: '100x100',:class=> "img-circular")if story.image.attached? %>   
+        <%=link_to "story", story %>
       <%end%>
     <li>
   </div>
 </div>
-<button type="button" class="btn btn-danger"><%=link_to "Story",new_story_path%></button><br>
-<%=current_user.username%>
 <div class = 'center'>
   <ul>
     <% @posts.each do |post| %>
-      <li>
+      <li> 
         <div class="card" style="width: 25rem;">
           <img src="" class="card-img-top">
           <div class ="card-body">
+           <%=image_tag post.user.image,size: '100x100',:class=> "img-circular"if post.user.image.attached? %>
+           <%=post.user.username%>
             <a href="/posts/<%=post.id %>">
             <%=image_tag post.picture, size: '350x400' %>
             </a>
@@ -26,7 +25,13 @@
             </div>
                <!--for Like section-->
             <div>
+            <%if current_user.already_likes?(post)%>
+           
+                <%=button_to 'Unlike', like_path(post),method: :delete%> 
+             
+              <%else%>
               <%=button_to 'like', likes_path,params: {like:{post_id: post.id}},method: :post%> 
+              <%end%>
             </div>
             <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
             <%=post.add_text%>
@@ -41,6 +46,12 @@
   <div class="card" style="width: 20rem;">
     <img src="" class="card-img-top">
       <div class ="card-body">
+      <%=search_form_for @q do |f| %>
+   <div class = "form-group">
+    <%= f.text_field :username_cont, class: "form-control"%>
+    <%=f.submit class:"btn bt-primary btn-lg" %>
+    </div>
+  <% end %>
         <ul>
         <h5> Suggestion For you</h5>
           <% @users.each do |user| %>

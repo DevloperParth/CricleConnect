@@ -22,7 +22,7 @@ before_action :new
 
   def comment_params
     params.require(:comment).permit(:comment,:user_id,:post_id)
-    
   end
+  
 end
 
