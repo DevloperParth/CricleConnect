@@ -1,11 +1,10 @@
 class CommentsController < ApplicationController
-before_action :new
   def index
     @comments = Comment.all
   end
 
   def new 
-  @comment = Comment.new 
+    @comment = Comment.new 
   end
 
   def create
@@ -23,6 +22,5 @@ before_action :new
   def comment_params
     params.require(:comment).permit(:comment,:user_id,:post_id)
   end
-  
 end
 

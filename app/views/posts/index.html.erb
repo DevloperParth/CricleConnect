@@ -25,13 +25,9 @@
             </div>
                <!--for Like section-->
             <div>
-            <%if current_user.already_likes?(post)%>
-           
-                <%=button_to 'Unlike', like_path(post),method: :delete%> 
-             
-              <%else%>
+            
               <%=button_to 'like', likes_path,params: {like:{post_id: post.id}},method: :post%> 
-              <%end%>
+            
             </div>
             <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
             <%=post.add_text%>

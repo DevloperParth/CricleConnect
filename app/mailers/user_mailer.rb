@@ -5,5 +5,4 @@ class UserMailer < ApplicationMailer
     @user=user
     mail to: user.email, subject:"welcome to my site CircleConnet",from: "kuldeeplovanshi777@gmail.com"
   end
-  
 end

@@ -22,8 +22,16 @@ gem 'gemoji'
 gem 'rails_emoji_picker'
 
 #use gem for rspac
-gem 'rspec'
+gem 'rspec-rails' 
 gem 'factory_bot_rails'
+gem 'simplecov'
+gem 'rails-controller-testing'
+
+gem 'faker', '~> 3.2'
+#use gem for view rspec 
+
+gem "sidekiq"
+
 #use gem for fallowblity
 gem 'followability'
 

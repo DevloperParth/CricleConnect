@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      PostMailer.new_post(@post).deliver_now
+      PostMailer.new_post(@post).deliver_later
       redirect_to controller: :posts, action: :index 
     else
       render :new, status: :unprocessable_entity
@@ -36,5 +36,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:add_text, :picture)
   end
-
 end

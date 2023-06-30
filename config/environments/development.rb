@@ -48,7 +48,7 @@ Rails.application.configure do
   password: 'dswvlceeryfdpmdi',
   authentication:  'plain',
 # enable_starttls_auto: true
-  }
+  } 
  
 
 

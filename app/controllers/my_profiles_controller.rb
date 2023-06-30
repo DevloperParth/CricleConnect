@@ -5,5 +5,4 @@ class MyProfilesController < ApplicationController
 
   def show
   end
-  
 end

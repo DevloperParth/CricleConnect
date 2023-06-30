@@ -47,7 +47,6 @@ class ProfileController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     redirect_to controller: :users, action: :index, status: :see_other
   end
@@ -56,7 +55,5 @@ class ProfileController < ApplicationController
   
   def set_user
     @user=User.find(params[:id])
-    @posts=Post.all
   end
-  
 end

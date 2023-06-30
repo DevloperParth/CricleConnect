@@ -2,7 +2,6 @@ class ApplicationRecord < ActiveRecord::Base
   primary_abstract_class
 
   def self.like(user, post)
-    
     create(user: user, post: post)
   end
 
@@ -10,5 +9,4 @@ class ApplicationRecord < ActiveRecord::Base
     like = find_by(user: user, post: post)
     like.destroy if like
   end
-
 end

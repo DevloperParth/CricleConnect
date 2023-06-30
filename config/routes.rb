@@ -1,4 +1,7 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
+  default_url_options :host => "kulovanshi@bestpeers.com"
   get 'stories/create'
   get 'stories/show'
   get 'stories/new'
@@ -10,6 +13,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'homes/index'
   root "homes#index"
+  get 'users/search', to: "users#search"
   resources :posts do
     post 'like', to: 'likes#like'
     delete 'unlike', to: 'likes#unlike'
@@ -20,7 +24,7 @@ Rails.application.routes.draw do
   resources :profile
   resources :likes
   resources :stories
-  resources :comments, only: [:index, :create, :destroy], shallow: true
+  resources :comments
   post 'profile/:id/follow', to: 'profile#follow',as: 'follow'
   post 'profile/:id/unfollow', to: 'profile#unfollow', as: 'unfollow'
   post 'profile/:id/accept', to: 'profile#accept', as: 'accept'
