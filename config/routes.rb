@@ -1,5 +1,6 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  devise_for :users
   mount Sidekiq::Web => '/sidekiq'
   default_url_options :host => "kulovanshi@bestpeers.com"
   get 'stories/create'
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   get 'strories/show'
   get 'profiles/index'
   get 'images/index'
-  devise_for :users
+  
   get 'homes/index'
   root "homes#index"
   get 'users/search', to: "users#search"
@@ -31,7 +32,7 @@ Rails.application.routes.draw do
   post 'profile/:id/decline', to: 'profile#decline', as: 'decline'
   post 'profile/:id/cancel', to: 'profile#cancel', as: 'cancel'
   post 'profile/:id/block', to: 'profile#block', as: 'block'
-
+  post 'users/sign_in', to: 'devise/sessions#create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

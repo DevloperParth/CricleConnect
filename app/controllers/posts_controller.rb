@@ -27,10 +27,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def search 
-    @user = User.search(params[:search])
-  end
-
   private
 
   def post_params
