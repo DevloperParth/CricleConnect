@@ -7,12 +7,14 @@ RSpec.describe LikesController, type: :controller do
   end
   
   describe "POST #create" do
-    context "with valid attributes" do
-      
-      it "creates a new like" do
-        expect{
-          post :create, like: FactoryBot.attributes_for(:like)
-        }.to change(Like,:count).by(1)
+    context 'when like is successfully saved' do
+      before do
+        post :create, params: { like: attributes_for(:like) }
+      end
+
+      it 'creates a new like' do
+        expect(assigns(:like)).to be_a(Like)
+        expect(assigns(:like)).to be_persisted
       end
     end
   end

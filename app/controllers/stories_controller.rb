@@ -13,7 +13,7 @@ class StoriesController < ApplicationController
     @story = current_user.stories.create(story_params)
     if @story.save
       redirect_to posts_path, notice: 'Story created successfully.'
-     else
+     else 
       flash[:alert] = 'Story could not be created.'
       render :new
     end
